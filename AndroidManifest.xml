@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Copyright 2016 The TensorFlow Authors. All Rights Reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.tensorflow.demo">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+
+    <uses-feature android:name="android.hardware.faketouch" android:required="false"/>
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
+    <uses-feature android:name="android.software.leanback" android:required="false" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <application android:allowBackup="true"
+        android:banner="@drawable/bell"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:icon="@drawable/ic_launcher"
+        android:theme="@style/AppThemedemo">
+        <service
+            android:name=".MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".MyService" />
+
+        <receiver android:name=".RejectOrMuteListener">
+            <intent-filter>
+                <action android:name="com.hrishita.difabled.REJECT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.hrishita.difabled.MUTE" />
+            </intent-filter>
+        </receiver>
+        <service android:name=".ChatNotificationService" />
+        <activity android:name=".ClassifierActivity"
+                  android:screenOrientation="portrait"
+                  android:label="@string/activity_name_classification">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
+
+        <activity android:name=".DetectorActivity"
+                  android:screenOrientation="portrait"
+                  android:label="@string/activity_name_detection">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
+
+        <activity android:name=".StylizeActivity"
+                  android:screenOrientation="portrait"
+                  android:label="@string/activity_name_stylize">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
+
+        <activity android:name=".SpeechActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/activity_name_speech">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
+
+
+        <activity android:name=".Textrec" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".MapsActivity"
+            android:label="activity_maps" >   </activity>
+
+        <activity android:name=".SplashScreenActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".PreHomeScreenActivity"
+            android:theme="@style/AppMaterialTheme"
+            />
+
+        <activity android:name=".MainActivity"> </activity>
+        <activity
+            android:name=".ChatActivity"
+            android:theme="@style/AppMaterialThemeAction" />
+
+        <activity android:name=".selectCategory" />
+        <activity android:name=".HomeActivity" android:theme="@style/AppMaterialThemeAction" >
+
+        </activity>
+        <activity android:name=".PostCommentActivity" android:theme="@style/AppMaterialThemeAction" />
+        <activity android:name=".ViewPostsActivity" />
+        <activity android:name=".UploadPostActivity" />
+        <activity android:name=".SelectContactActivity" />
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".VideoCallDialActivity" />
+        <activity android:name=".PhoneAuthActivity" android:theme="@style/AppMaterialTheme" />
+        <activity android:name=".IncomingCall" />
+        <activity android:name=".FCMActivity" />
+        <activity android:name=".Main2Activity" />
+        <activity android:name=".WebViewActivity" />
+    </application>
+
+</manifest>
